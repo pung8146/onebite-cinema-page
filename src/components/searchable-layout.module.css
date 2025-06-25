@@ -1,0 +1,22 @@
+.searchContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.searchContainer input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.searchContainer button {
+  width: 10%;
+  background-color: #707070;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
