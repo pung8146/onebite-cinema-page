@@ -1,6 +1,6 @@
 import SearchableLayout from "@/components/searchable-layout";
 import Head from "next/head";
-
+import movie from "@/mock/movie.json";
 export default function Home() {
   return (
     <>
