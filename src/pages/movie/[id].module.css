@@ -1,0 +1,59 @@
+/* 상세페이지 스타일 */
+.container {
+  margin-top: 20px;
+}
+
+.posterContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.posterContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.3);
+  z-index: 1;
+}
+
+.poster {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 80%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info {
+  margin-bottom: 8px;
+}
+
+.company {
+}
+
+.description {
+}
+
+.backButton {
+}

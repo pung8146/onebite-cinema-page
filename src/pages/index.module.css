@@ -1,0 +1,19 @@
+.recommend {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.recommend h3 {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.movie_list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin-bottom: 20px;
+}

@@ -5,8 +5,6 @@ export default function MovieItem({ movie }: { movie: MovieData }) {
   return (
     <Link href={`/movie/${movie.id}`} className={style.container}>
       <img src={movie.posterImgUrl} alt={movie.title} />
-      <h4>{movie.title}</h4>
-      <p>{movie.subTitle}</p>
     </Link>
   );
 }
