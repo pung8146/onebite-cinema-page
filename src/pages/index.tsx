@@ -3,16 +3,23 @@ import Head from "next/head";
 import movie from "@/mock/movie.json";
 import MovieItem from "@/components/movie-item";
 import styles from "./index.module.css";
-import { MovieData } from "@/types";
+import fetchMovie from "@/lib/fetch-movie";
+import fetchRandomMovies from "@/lib/fetch-random-movies";
+import { InferGetServerSidePropsType } from "next";
 
-// 랜덤으로 3개 영화 선택하는 함수
-const getRandomMovies = (movies: MovieData[], count: number) => {
-  const shuffled = [...movies].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
+export const getServerSideProps = async () => {
+  const allMovies = await fetchMovie();
+  const recommendMovies = await fetchRandomMovies();
+  return {
+    props: { allMovies, recommendMovies },
+  };
 };
 
-export default function Home() {
-  const randomMovies = getRandomMovies(movie, 3);
+export default function Home({
+  allMovies,
+  recommendMovies,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  console.log(allMovies);
 
   return (
     <>
@@ -26,7 +33,7 @@ export default function Home() {
         <section>
           <h3>지금 가장 추천하는 영화</h3>
           <div className={styles.recommend}>
-            {randomMovies.map((movie) => (
+            {recommendMovies?.map((movie) => (
               <MovieItem key={movie.id} movie={movie} />
             ))}
           </div>
