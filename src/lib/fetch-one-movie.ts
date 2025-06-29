@@ -1,13 +1,9 @@
 import { MovieData } from "@/types";
 
-export default async function fetchMovie(
-  q?: string
-): Promise<MovieData[] | null> {
-  let url = `http://localhost:12345/movie`;
-
-  if (q) {
-    url += `/search?q=${q}`;
-  }
+export default async function fetchOneMovie(
+  id: number
+): Promise<MovieData | null> {
+  const url = `http://localhost:12345/movie/${id}`;
 
   try {
     const response = await fetch(url);
@@ -18,6 +14,6 @@ export default async function fetchMovie(
     return data;
   } catch (error) {
     console.error("Error fetching movie:", error);
-    return [];
+    return null;
   }
 }
