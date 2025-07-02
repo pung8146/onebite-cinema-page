@@ -1,6 +1,8 @@
 import style from "./[id].module.css";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import fetchOneMovie from "@/lib/fetch-one-movie";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 export const getStaticPaths = async () => {
   return {
@@ -9,7 +11,7 @@ export const getStaticPaths = async () => {
       { params: { id: "2" } },
       { params: { id: "3" } },
     ],
-    fallback: false,
+    fallback: true,
   };
 };
 export const getStaticProps = async (context: GetStaticPropsContext) => {
@@ -23,6 +25,20 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 export default function Page({
   movie,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return (
+      <>
+        <Head>
+          <title>ONEBITE CINEMA</title>
+          <meta property="og:title" content="ONEBITE CINEMA" />
+          <meta property="og:description" content="ONEBITE CINEMA" />
+          <meta property="og:image" content="/thummmbnail.png" />
+        </Head>
+        <div>Loading...</div>;
+      </>
+    );
+  }
   if (!movie) {
     return <div>영화를 찾을 수 없습니다.</div>;
   }

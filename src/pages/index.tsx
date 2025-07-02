@@ -8,13 +8,13 @@ import fetchRandomMovies from "@/lib/fetch-random-movies";
 import { InferGetStaticPropsType } from "next";
 
 export const getStaticProps = async () => {
-  console.log("인덱스페이지");
   const [allMovies, recommendMovies] = await Promise.all([
     fetchMovie(),
     fetchRandomMovies(),
   ]);
   return {
     props: { allMovies, recommendMovies },
+    revalidate: 3,
   };
 };
 
@@ -28,6 +28,9 @@ export default function Home({
     <>
       <Head>
         <title>ONEBITE CINEMA</title>
+        <meta property="og:title" content="ONEBITE CINEMA" />
+        <meta property="og:description" content="ONEBITE CINEMA" />
+        <meta property="og:image" content="/thummmbnail.png:" />
         <meta name="description" content="ONEBITE CINEMA" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
