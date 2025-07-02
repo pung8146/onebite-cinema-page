@@ -42,7 +42,6 @@ export default function Page({
   if (!movie) {
     return <div>영화를 찾을 수 없습니다.</div>;
   }
-  console.log("id page", movie);
   return (
     <div className={style.container}>
       <div

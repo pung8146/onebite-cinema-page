@@ -28,9 +28,16 @@ export default function Home({
     <>
       <Head>
         <title>ONEBITE CINEMA</title>
-        <meta property="og:title" content="ONEBITE CINEMA" />
-        <meta property="og:description" content="ONEBITE CINEMA" />
-        <meta property="og:image" content="/thummmbnail.png:" />
+        <meta property="og:image" content="/thumbnail.png:" />
+        <meta property="og:title" content="한입 CINEMA" />
+        <meta
+          property="og:description"
+          content="ONEBITE CINEMA og description"
+        />
+        <meta
+          property="og:url"
+          content="https://onebite-cinema-page.vercel.app"
+        />
         <meta name="description" content="ONEBITE CINEMA" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

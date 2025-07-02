@@ -32,7 +32,6 @@ export default function Page() {
     }
   }, [q]);
 
-  console.log(movies);
   return (
     <div>
       {movies && movies.length > 0 ? (
