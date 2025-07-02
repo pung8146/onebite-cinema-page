@@ -28,15 +28,16 @@ export default function Home({
     <>
       <Head>
         <title>ONEBITE CINEMA</title>
-        <meta property="og:image" content="/thumbnail.png:" />
+        {/* 상대경로가 작동을안해서 수정 */}
+        {/* <meta property="og:image" content="/thumbnail.png" /> */}
+        <meta
+          property="og:image"
+          content="https://onebite-cinema-page.vercel.app/thumbnail.png"
+        />
         <meta property="og:title" content="한입 CINEMA" />
         <meta
           property="og:description"
           content="ONEBITE CINEMA og description"
-        />
-        <meta
-          property="og:url"
-          content="https://onebite-cinema-page.vercel.app"
         />
         <meta name="description" content="ONEBITE CINEMA" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
